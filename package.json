@@ -1,0 +1,19 @@
+{
+  "name": "study-custom-object-formatters",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howdy39/study-custom-object-formatters.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/howdy39/study-custom-object-formatters/issues"
+  },
+  "homepage": "https://github.com/howdy39/study-custom-object-formatters#readme"
+}

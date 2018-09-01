@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+  <title>Hello, Custom Formatter</title>
+</head>
+<body>
+Custom Formatter Demo. In the console, try inspecting the <i>custom</i> variable.
+<script>
+  var custom = {};
+  (function() {
+	  var formatter = {
+	  	header: function(x) {
+	  		if (x === custom) {
+	  			return ["span", {"style": "background-color: #fcc"}, "Hello!"];
+	  		} else {
+	  			return null;
+	  		}
+	  	},
+	  	hasBody: function(x) {
+	  		return x === custom;
+	  	},
+	  	body: function(x) {
+	  		var selfRef = ["object", {"object": custom}];
+	  		return ["ol", {}, ["li", {}, "world!"], ["li", {}, selfRef]];
+	  	}
+	  };
+	  window.devtoolsFormatters = [formatter];
+  }
+)();
+</script>
+</body>
+</html>
