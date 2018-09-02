@@ -23,18 +23,18 @@ Custom Formatter Demo. In the console, try inspecting the <i>custom</i> variable
       "style": "border: 1px solid grey; padding: 10px;"
     };
 
-	  const formatter = {
-	  	header: function(x) {
-	  		if (x === user) {
+    const formatter = {
+      header: function(x) {
+        if (x === user) {
           return ["span", headerStyle, `userId: ${x.id}`];
-	  		} else {
-	  			return null;
-	  		}
-	  	},
-	  	hasBody: function(x) {
-	  		return x === user;
-	  	},
-	  	body: function(user) {
+        } else {
+          return null;
+        }
+      },
+      hasBody: function(x) {
+        return x === user;
+      },
+      body: function(user) {
         const tableHeader = [
           "tr", borderStyle,
           ["td", tdStyle, "名前"], ["td", tdStyle, "年齢"]];
@@ -44,10 +44,10 @@ Custom Formatter Demo. In the console, try inspecting the <i>custom</i> variable
           ["td", tdStyle, user.name], ["td", tdStyle, user.age]
         ];
         return ["table", borderStyle, tableHeader, tr];
-	  	}
-	  };
+      }
+    };
     console.log(user);
-	  window.devtoolsFormatters = [formatter];
+    window.devtoolsFormatters = [formatter];
     console.log(user);
   }
 )();
