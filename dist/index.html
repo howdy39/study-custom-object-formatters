@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <title>Hello, Custom Formatter</title>
+</head>
+<body>
+Custom Formatter Demo. In the console, try inspecting the <i>custom</i> variable.
+<script>
+  let user = {
+    id: "howdy39",
+    name: "Tatsuya Nakano",
+    age: 42,
+  };
+
+  (function() {
+    const headerStyle = {
+      "style": "background-color: #cfc;"
+    }
+    const borderStyle = {
+      "style": "border: 1px solid grey;"
+    };
+    const tdStyle = {
+      "style": "border: 1px solid grey; padding: 10px;"
+    };
+
+	  const formatter = {
+	  	header: function(x) {
+	  		if (x === user) {
+          return ["span", headerStyle, `userId: ${x.id}`];
+	  		} else {
+	  			return null;
+	  		}
+	  	},
+	  	hasBody: function(x) {
+	  		return x === user;
+	  	},
+	  	body: function(user) {
+        const tableHeader = [
+          "tr", borderStyle,
+          ["td", tdStyle, "名前"], ["td", tdStyle, "年齢"]];
+
+        const tr = [
+          "tr", borderStyle,
+          ["td", tdStyle, user.name], ["td", tdStyle, user.age]
+        ];
+        return ["table", borderStyle, tableHeader, tr];
+	  	}
+	  };
+    console.log(user);
+	  window.devtoolsFormatters = [formatter];
+    console.log(user);
+  }
+)();
+</script>
+</body>
+</html>
